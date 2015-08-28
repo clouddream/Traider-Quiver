@@ -1,23 +1,10 @@
-//Modules
+// Modules
 var request = require('request');
 var fs = require('fs');
 
-var accessToken = fs.readFileSync(__dirname + '/access_token.txt').toString()
+// Import
+var api = require('./traider_api');
 
+// Sample API call
+api.a('https://sandbox.tradier.com/v1/markets/quotes?symbols=spy', 'GET');
 
-//Simple GET Call
-request({
-    url: 'https://sandbox.tradier.com/v1/markets/quotes?symbols=spy', //URL to hit
-   //  qs: {from: 'blog example', time: +new Date()}, //Query string data
-    method: 'GET', 
-    headers: { 
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ' + accessToken
-    }
-}, function(error, response, body){
-    if(error) {
-        console.log(error);
-    } else {
-        console.log(response.statusCode, body);
-    }
-});
