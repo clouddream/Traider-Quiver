@@ -6,5 +6,4 @@ var fs = require('fs');
 var api = require('./traider_api');
 
 // Sample API call
-api.a('https://sandbox.tradier.com/v1/markets/quotes?symbols=spy', 'GET');
-
+api.a('https://sandbox.tradier.com/v1/markets/quotes?symbols=spy', 'GET').then(console.log, console.error);

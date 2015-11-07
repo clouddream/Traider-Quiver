@@ -1,10 +1,12 @@
 var request = require('request');
+var Q = require('q');
 
 
 var fs = require('fs');
 var accessToken = fs.readFileSync(__dirname + '/access_token.txt').toString()
 
 exports.a = function (apiUrl, apiMethod) {
+    var deferred = Q.defer()
 	request({
     url: apiUrl, 
     method: apiMethod, 
@@ -13,11 +15,9 @@ exports.a = function (apiUrl, apiMethod) {
         'Authorization': 'Bearer ' + accessToken
     }
 }, function(error, response, body){
-    if(error) {
-        console.log(error);
-    } else {
-        console.log(response.statusCode, body);
-    }
+    if (error) deferred.reject(error)
+    else deferred.resolve(body)
 });
+    return deferred.promise
 }
 

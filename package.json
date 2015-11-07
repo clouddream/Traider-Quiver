@@ -1,11 +1,18 @@
 {
   "name": "tradier-api-call",
-  "version": "1.0.0",
-  "description": "fml",
+  "version": "0.0.1",
+  "description": "A simple package for making API calls to Tradier",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ld",
-  "license": "ISC"
+  "keywords": [
+    "Tradier",
+    "API"
+  ],
+  "author": "lacunadream",
+  "license": "ISC",
+  "dependencies": {
+    "q": "^1.4.1"
+  }
 }
